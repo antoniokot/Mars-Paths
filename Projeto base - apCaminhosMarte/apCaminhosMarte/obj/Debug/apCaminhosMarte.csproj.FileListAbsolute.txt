@@ -8,3 +8,10 @@ D:\Chico\0Cotuca\anos letivos\2019\1o semestre\estDad\projetos\Projeto3_Marte\ap
 D:\Chico\0Cotuca\anos letivos\2019\1o semestre\estDad\projetos\Projeto3_Marte\apCaminhosMarte\apCaminhosMarte\obj\Debug\apCaminhosMarte.csproj.CoreCompileInputs.cache
 D:\Chico\0Cotuca\anos letivos\2019\1o semestre\estDad\projetos\Projeto3_Marte\apCaminhosMarte\apCaminhosMarte\obj\Debug\apCaminhosMarte.exe
 D:\Chico\0Cotuca\anos letivos\2019\1o semestre\estDad\projetos\Projeto3_Marte\apCaminhosMarte\apCaminhosMarte\obj\Debug\apCaminhosMarte.pdb
+C:\Users\Ed\Desktop\COTUCA\Ensino Tecnico\01 - Matérias\Estrutura de Dados II\Projeto II\Projeto base - apCaminhosMarte\apCaminhosMarte\obj\Debug\apCaminhosMarte.csprojAssemblyReference.cache
+C:\Users\Ed\Desktop\COTUCA\Ensino Tecnico\01 - Matérias\Estrutura de Dados II\Projeto II\Projeto base - apCaminhosMarte\apCaminhosMarte\obj\Debug\apCaminhosMarte.Form1.resources
+C:\Users\Ed\Desktop\COTUCA\Ensino Tecnico\01 - Matérias\Estrutura de Dados II\Projeto II\Projeto base - apCaminhosMarte\apCaminhosMarte\obj\Debug\apCaminhosMarte.Properties.Resources.resources
+C:\Users\Ed\Desktop\COTUCA\Ensino Tecnico\01 - Matérias\Estrutura de Dados II\Projeto II\Projeto base - apCaminhosMarte\apCaminhosMarte\obj\Debug\apCaminhosMarte.csproj.GenerateResource.cache
+C:\Users\Ed\Desktop\COTUCA\Ensino Tecnico\01 - Matérias\Estrutura de Dados II\Projeto II\Projeto base - apCaminhosMarte\apCaminhosMarte\obj\Debug\apCaminhosMarte.csproj.CoreCompileInputs.cache
+C:\Users\Ed\Desktop\COTUCA\Ensino Tecnico\01 - Matérias\Estrutura de Dados II\Projeto II\Projeto base - apCaminhosMarte\apCaminhosMarte\obj\Debug\apCaminhosMarte.exe
+C:\Users\Ed\Desktop\COTUCA\Ensino Tecnico\01 - Matérias\Estrutura de Dados II\Projeto II\Projeto base - apCaminhosMarte\apCaminhosMarte\obj\Debug\apCaminhosMarte.pdb

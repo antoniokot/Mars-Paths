@@ -175,25 +175,5 @@ namespace apExercicios1_a_10
     {
       this.Espelhar(this.Raiz);
     }
-
-    // Exercício 8 – Percurso por níveis
-    public void EscreverPorNiveis()
-    {
-      FilaLista<NoArvore<Dado>> umaFila = new FilaLista<NoArvore<Dado>>();
-
-      NoArvore<Dado> noAtual = Raiz;
-      while (noAtual != null)
-      {
-        if (noAtual.Esq != null)
-           umaFila.Enfileirar(noAtual.Esq);
-        if (noAtual.Dir != null)
-           umaFila.Enfileirar(noAtual.Dir);
-        Console.WriteLine(noAtual.Info);
-        if (umaFila.EstaVazia())
-           noAtual = null;
-        else
-           noAtual = umaFila.Retirar();
-      }
-    }
   }
 }
