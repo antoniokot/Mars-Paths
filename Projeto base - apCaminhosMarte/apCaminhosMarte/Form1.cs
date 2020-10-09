@@ -12,9 +12,13 @@ namespace apCaminhosMarte
 {
     public partial class Form1 : Form
     {
+        ArvoreCidades cidades;
+
         public Form1()
         {
             InitializeComponent();
+
+            cidades = new ArvoreCidades("CidadesMarte.txt");
         }
 
         private void TxtCaminhos_DoubleClick(object sender, EventArgs e)
@@ -25,6 +29,20 @@ namespace apCaminhosMarte
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Buscar caminhos entre cidades selecionadas");
+        }
+
+        private void pbMapa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbMapa_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+
+            foreach(Cidade cidade in cidades)
+
+            g.DrawEllipse(new Pen(Color.Black), cidades);
         }
     }
 }

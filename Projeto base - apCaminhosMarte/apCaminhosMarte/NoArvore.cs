@@ -4,19 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace apExercicios1_a_10
+public class NoArvore<Tipo> : IComparable<NoArvore<Tipo>> where Tipo : IComparable<Tipo>
 {
-  public class NoArvore<Tipo> : IComparable<NoArvore<Tipo>> , IGravarEmArquivo
-                                where Tipo: IComparable<Tipo>
-  {
     Tipo info;  // informação armazenada
     NoArvore<Tipo> esq, dir;
 
     public NoArvore(Tipo dado, NoArvore<Tipo> esquerda, NoArvore<Tipo> direita)
     {
-      Info = dado;
-      Esq = esquerda;
-      Dir = direita;
+        Info = dado;
+        Esq = esquerda;
+        Dir = direita;
     }
 
     public NoArvore(Tipo dado) : this(dado, null, null)
@@ -32,12 +29,11 @@ namespace apExercicios1_a_10
 
     public int CompareTo(NoArvore<Tipo> outro)
     {
-      return this.CompareTo(outro);
+        return this.CompareTo(outro);
     }
 
     public string ParaArquivo()
     {
-      throw new NotImplementedException();
+        throw new NotImplementedException();
     }
-  }
 }

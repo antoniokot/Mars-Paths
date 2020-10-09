@@ -4,11 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using Arvore;
+using System.Windows.Forms;
+using System.Drawing;
 
 namespace apCaminhosMarte
 {
     class ArvoreCidades
     {
+        ArvoreDeBusca<Cidade> arvore;
         int qtasCidades;
 
         const int tamanhoId = 3;
@@ -24,7 +28,7 @@ namespace apCaminhosMarte
         public ArvoreCidades(string nomeArq)
         {
             StreamReader arq = new StreamReader(nomeArq);
-            qtasCidades = 0;
+            QtasCidades = 0;
             while(!arq.EndOfStream)
             {
                 string linha = arq.ReadLine();
@@ -33,8 +37,11 @@ namespace apCaminhosMarte
                 int x    = int.Parse(linha.Substring(inicioX, tamanhoX).Trim());
                 int y    = int.Parse(linha.Substring(inicioY, tamanhoY).Trim());
                 Cidade novaCidade = new Cidade(id, x, y, nome);
-                qtasCidades++;
+                arvore.Incluir(novaCidade);
+                QtasCidades++;
             }
+
+            arq.Close();
         }
 
         public int QtasCidades { get => qtasCidades; set => qtasCidades = value; }
