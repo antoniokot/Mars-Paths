@@ -11,14 +11,6 @@ namespace Arvore
     {
         NoArvore<Tipo> raiz, atual, antecessor;
 
-        public Panel painelArvore;
-
-        public Panel OndeExibir
-        {
-            get { return painelArvore; }
-            set { painelArvore = value; }
-        }
-
         public NoArvore<Tipo> Raiz { get => raiz; set => raiz = value; }
         public NoArvore<Tipo> Atual { get => atual; set => atual = value; }
         public NoArvore<Tipo> Antecessor { get => antecessor; set => antecessor = value; }
