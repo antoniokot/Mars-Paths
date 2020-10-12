@@ -27,7 +27,7 @@ namespace apCaminhosMarte
         public ArvoreCidades(string nomeArq)
         {
             StreamReader arq = new StreamReader(nomeArq);
-            QtasCidades = 0;
+            qtasCidades = 0;
             while (!arq.EndOfStream)
             {
                 string linha = arq.ReadLine();
@@ -37,18 +37,17 @@ namespace apCaminhosMarte
                 int y = int.Parse(linha.Substring(inicioY, tamanhoY).Trim());
                 Cidade novaCidade = new Cidade(id, x, y, nome);
                 Incluir(novaCidade);
-                QtasCidades++;
+
+                qtasCidades++;
             }
 
             arq.Close();
         }
 
-        public int QtasCidades { get => qtasCidades; set => qtasCidades = value; }
-
-        //public Cidade[] LerEmOrdem()
-        //{
-
-        //}
+        public int QtasCidades 
+        { 
+            get => qtasCidades;
+        }
 
         public void PintarCidades(NoArvore<Cidade> at, Graphics g)
         {

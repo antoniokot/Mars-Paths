@@ -13,12 +13,14 @@ namespace apCaminhosMarte
     public partial class Form1 : Form
     {
         ArvoreCidades cidades;
+        GrafoCidades grafo;
 
         public Form1()
         {
             InitializeComponent();
 
             cidades = new ArvoreCidades("../../../CidadesMarte.txt");
+            grafo = new GrafoCidades("../../../../CaminhosEntreCidadesMarte.txt", cidades.QtasCidades);
         }
 
         private void TxtCaminhos_DoubleClick(object sender, EventArgs e)
@@ -29,6 +31,13 @@ namespace apCaminhosMarte
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Buscar caminhos entre cidades selecionadas");
+
+            int origem = int.Parse(lsbOrigem.SelectedItem.ToString());
+            int destino = int.Parse(lsbDestino.SelectedItem.ToString());
+
+
+
+            //cidades.AcharCaminhos(origem, destino, dgvCaminhos, dgvMelhorCaminho, cidades);
         }
 
         private void pbMapa_Paint(object sender, PaintEventArgs e)
