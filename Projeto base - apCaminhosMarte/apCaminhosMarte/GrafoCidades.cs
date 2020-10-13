@@ -30,6 +30,13 @@ namespace apCaminhosMarte
         public GrafoCidades(string nomeArq, int qtasCidades)
         {
             matrizCidades = new int[qtasCidades, qtasCidades];
+            for (int i = 0; i < qtasCidades; i++)
+            {
+                for (int j = 0; j < qtasCidades; j++)
+                {
+                    matrizCidades[i, j] = 0;
+                }
+            }
 
             StreamReader arq = new StreamReader(nomeArq);
             while (!arq.EndOfStream)
@@ -40,6 +47,7 @@ namespace apCaminhosMarte
                 int distancia = int.Parse(linha.Substring(inicioDistancia, tamanhoDistancia).Trim());
 
                 matrizCidades[origem, destino] = distancia;
+                matrizCidades[destino, origem] = distancia;
             }
         }
 
@@ -87,6 +95,9 @@ namespace apCaminhosMarte
             PilhaLista<Movimento> melhorCaminho = new PilhaLista<Movimento>();
 
             Boolean[] visitadas = new Boolean[QtsCidades];
+            for (int i = 0; i < qtsCidades; i++)
+                visitadas[i] = false;
+            visitadas[origem] = true;
 
             ExisteCaminho(origem, destino, ref atual, ref prox, dgvCaminhos, dgvMelhor, cidades, ref movimentos, ref melhorCaminho, ref visitadas);
         }
