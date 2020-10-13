@@ -8,39 +8,41 @@ using System.Threading.Tasks;
 // Antônio Hideto Borges Kotsubo - 19162 e Matheus Seiji Luna Noda - 19190
 class Movimento : IComparable<Movimento>    // Classe alterada para auxilio no projeto
 {
-    private int linha, coluna, distancia;     // Coordenadas da matriz
-    public Movimento(int lin, int col, int dist)
+    private int origem, destino, distancia;     // Coordenadas da matriz
+    public Movimento(int ori, int des, int dist)
     {
-        linha = lin;
-        coluna = col;
+        origem = ori;
+        destino = des;
         distancia = dist;
     }
-    public Movimento(int lin, int col)
+    public Movimento(int ori, int des)
     {
-        linha = lin;
-        coluna = col;
+        origem = ori;
+        destino = des;
         distancia = 0;
     }
 
-    public int Linha
-    {
-        get => linha;
-        set => linha = value;
-    }
-    public int Coluna
-    {
-        get => coluna;
-        set => coluna = value;
-    }
+
     public int Distancia
     {
         get => distancia;
         set => distancia = value;
     }
+    public int Origem 
+    { 
+        get => origem; 
+        set => origem = value; 
+    }
+
+    public int Destino 
+    { 
+        get => destino; 
+        set => destino = value; 
+    }
 
     public override String ToString()
     {
-        return linha + ", " + coluna;
+        return origem + ", " + destino;
     }
 
     public int CompareTo(Movimento outro)   // para compatibilizar com ListaSimples e NoLista
