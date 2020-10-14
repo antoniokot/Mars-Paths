@@ -13,6 +13,7 @@ namespace apCaminhosMarte
     {
         int[,] matrizCidades;
         int qtsCidades;
+        int qtosCaminhos;
 
         const int tamanhoOrigem = 3;
         const int tamanhoDestino = 3;
@@ -29,6 +30,7 @@ namespace apCaminhosMarte
 
         public GrafoCidades(string nomeArq, int qtasCidades)
         {
+            QtsCidades = qtasCidades;
             matrizCidades = new int[qtasCidades, qtasCidades];
             for (int i = 0; i < qtasCidades; i++)
             {
@@ -95,7 +97,7 @@ namespace apCaminhosMarte
             PilhaLista<Movimento> melhorCaminho = new PilhaLista<Movimento>();
 
             Boolean[] visitadas = new Boolean[QtsCidades];
-            for (int i = 0; i < qtsCidades; i++)
+            for (int i = 0; i < QtsCidades; i++)
                 visitadas[i] = false;
             visitadas[origem] = true;
 
@@ -103,46 +105,59 @@ namespace apCaminhosMarte
         }
 
         private void ExisteCaminho(int origem, int destino, ref int atual, ref int prox, DataGridView dgvCaminhos, DataGridView dgvMelhor, ArvoreCidades cidades, ref PilhaLista<Movimento> mov, ref PilhaLista<Movimento> melhor, ref Boolean[] visit)
-        { 
-            if(prox == destino && matrizCidades[atual, prox] != 0)
+        {
+            if (prox < visit.Length)
             {
-                int dist = matrizCidades[atual, prox];
-                mov.Empilhar(new Movimento(atual, prox, dist));
+                if (prox == destino && matrizCidades[atual, prox] != 0)
+                {
+                    int dist = matrizCidades[atual, prox];
+                    mov.Empilhar(new Movimento(atual, prox, dist));
 
-                //var novaPilha = new PilhaLista<Movimento>();
+                    ExibirCaminhos(dgvCaminhos, mov);
 
-                //while(!mov.EstaVazia)
-                //{
+                    prox++;
+                    mov.Desempilhar();
+                    ExisteCaminho(origem, destino, ref atual, ref prox, dgvCaminhos, dgvMelhor, cidades, ref mov, ref melhor, ref visit);
+                }
 
-                //}
+                else if(matrizCidades[atual, prox] == 0 || visit[prox])
+                {
+                    prox++;
+                    ExisteCaminho(origem, destino, ref atual, ref prox, dgvCaminhos, dgvMelhor, cidades, ref mov, ref melhor, ref visit);
+                }
+                else
+                {
+                    visit[atual] = true;
+                    int dist = matrizCidades[atual, prox];
+                    mov.Empilhar(new Movimento(atual, prox, dist));
+
+                    atual = prox;
+                    prox = 0;
+
+                    ExisteCaminho(origem, destino, ref atual, ref prox, dgvCaminhos, dgvMelhor, cidades, ref mov, ref melhor, ref visit);
+                }  
             }
-
-            else
-            if(matrizCidades[atual, prox] == 0)
+            else if(!mov.EstaVazia)
             {
-                prox++;
+                var ultimoMov = mov.Desempilhar();
+                atual = ultimoMov.Origem;
+                prox = ultimoMov.Destino + 1;
                 ExisteCaminho(origem, destino, ref atual, ref prox, dgvCaminhos, dgvMelhor, cidades, ref mov, ref melhor, ref visit);
             }
-
-            else
-            if(matrizCidades[atual, prox] != 0 && !visit[prox])
+        }    
+        private void ExibirCaminhos(DataGridView dgv, PilhaLista<Movimento> mov)
+        {
+            if(dgv.ColumnCount < mov.Tamanho)
+                dgv.ColumnCount = mov.Tamanho;
+            PilhaLista<Movimento> aux = new PilhaLista<Movimento>();
+            while (!mov.EstaVazia)
             {
-                visit[atual] = true;
-                int dist = matrizCidades[atual, prox];
-                mov.Empilhar(new Movimento(atual, prox, dist));
-
-                atual = prox;
-                prox = 0;
-
-                ExisteCaminho(origem, destino, ref atual, ref prox, dgvCaminhos, dgvMelhor, cidades, ref mov, ref melhor, ref visit);
+                aux.Empilhar(mov.Desempilhar());
             }
-
-            if(prox == QtsCidades - 1 && matrizCidades[atual, prox] == 0)
+            aux.Exibir(dgv);
+            while (!aux.EstaVazia)
             {
-                var movimento = mov.Desempilhar();
-
-                atual = movimento.Origem;
-                
+                mov.Empilhar(aux.Desempilhar());
             }
         }
     }

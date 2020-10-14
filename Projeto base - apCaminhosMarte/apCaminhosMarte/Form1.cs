@@ -30,14 +30,20 @@ namespace apCaminhosMarte
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Buscar caminhos entre cidades selecionadas");
+            for(int i = 0;i < dgvCaminhos.RowCount; i++)
+            {
+                for(int j = 0; j < dgvCaminhos.ColumnCount; j++)
+                {
+                    dgvCaminhos[j, i].Value = "";
+                }
+            }
 
-            int origem = int.Parse(lsbOrigem.SelectedItem.ToString());
-            int destino = int.Parse(lsbDestino.SelectedItem.ToString());
-
-
-
-            //cidades.AcharCaminhos(origem, destino, dgvCaminhos, dgvMelhorCaminho, cidades);
+            int origem = int.Parse(lsbOrigem.SelectedItem.ToString().Trim().Substring(0,1));
+            int destino = int.Parse(lsbDestino.SelectedItem.ToString().Trim().Substring(0,1));
+            if (origem != destino)
+                grafo.AcharCaminhos(origem, destino, dgvCaminhos, dgvMelhorCaminho, cidades);
+            else
+                MessageBox.Show("Selecione origem e destino distintos");
         }
 
         private void pbMapa_Paint(object sender, PaintEventArgs e)
