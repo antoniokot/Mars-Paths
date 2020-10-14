@@ -54,7 +54,7 @@ namespace apCaminhosMarte
             if (at != null)
             {
                 g.FillEllipse(new SolidBrush(Color.Black), at.Info.X / 4, at.Info.Y / 4, 10, 10);
-                g.DrawString(at.Info.NomeCidade, new Font("Courier New", 8, FontStyle.Bold), Brushes.Black, new PointF(-26 + at.Info.X / 4, 7 + at.Info.Y / 4));
+                g.DrawString(at.Info.NomeCidade, new Font("Courier New", 9, FontStyle.Bold), Brushes.Black, new PointF(-26 + at.Info.X / 4, 7 + at.Info.Y / 4));
                 PintarCidades(at.Esq, g);
                 PintarCidades(at.Dir, g);
             }

@@ -264,13 +264,29 @@
             this.lsbDestino.FormattingEnabled = true;
             this.lsbDestino.ItemHeight = 16;
             this.lsbDestino.Items.AddRange(new object[] {
-            "  0 - Acheron          ",
-            "  1 - Arena           ",
-            "  2 - Arrakeen       ",
-            "  3 - Bakhuysen       ",
-            "  4 - Bradbury ",
-            "  5 - Burroughs       ",
-            "  6 - Cairo            "});
+            "  00 - Acheron          ",
+            "  01 - Arena           ",
+            "  02 - Arrakeen       ",
+            "  03 - Bakhuysen       ",
+            "  04 - Bradbury ",
+            "  05 - Burroughs       ",
+            "  06 - Cairo            ",
+            "  07 - Dumont",
+            "  08 - Echus Overlook",
+            "  09 - Esperança",
+            "  10 - Gondor",
+            "  11 - Lakefront",
+            "  12 - Lowell",
+            "  13 - Moria",
+            "  14 - Nicosia",
+            "  15 - Odesa",
+            "  16 - Perseverança",
+            "  17 - Rowan",
+            "  18 - Senzeni Na",
+            "  19 - Sheffield",
+            "  20 - Temperança",
+            "  21 - Tharsis",
+            "  22 - Underhill"});
             this.lsbDestino.Location = new System.Drawing.Point(1038, 129);
             this.lsbDestino.Name = "lsbDestino";
             this.lsbDestino.Size = new System.Drawing.Size(177, 84);
@@ -293,13 +309,29 @@
             this.lsbOrigem.FormattingEnabled = true;
             this.lsbOrigem.ItemHeight = 16;
             this.lsbOrigem.Items.AddRange(new object[] {
-            "  0 - Acheron          ",
-            "  1 - Arena           ",
-            "  2 - Arrakeen       ",
-            "  3 - Bakhuysen       ",
-            "  4 - Bradbury ",
-            "  5 - Burroughs       ",
-            "  6 - Cairo            "});
+            "  00 - Acheron          ",
+            "  01 - Arena           ",
+            "  02 - Arrakeen       ",
+            "  03 - Bakhuysen       ",
+            "  04 - Bradbury ",
+            "  05 - Burroughs       ",
+            "  06 - Cairo            ",
+            "  07 - Dumont",
+            "  08 - Echus Overlook",
+            "  09 - Esperança",
+            "  10 - Gondor",
+            "  11 - Lakefront",
+            "  12 - Lowell",
+            "  13 - Moria",
+            "  14 - Nicosia",
+            "  15 - Odesa",
+            "  16 - Perseverança",
+            "  17 - Rowan",
+            "  18 - Senzeni Na",
+            "  19 - Sheffield",
+            "  20 - Temperança",
+            "  21 - Tharsis",
+            "  22 - Underhill"});
             this.lsbOrigem.Location = new System.Drawing.Point(1038, 25);
             this.lsbOrigem.Name = "lsbOrigem";
             this.lsbOrigem.Size = new System.Drawing.Size(177, 84);

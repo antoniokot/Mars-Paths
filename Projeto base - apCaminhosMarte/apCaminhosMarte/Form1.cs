@@ -36,12 +36,17 @@ namespace apCaminhosMarte
             dgvMelhorCaminho.Rows.Clear();
             dgvMelhorCaminho.Refresh();
 
-            int origem = int.Parse(lsbOrigem.SelectedItem.ToString().Trim().Substring(0,1));
-            int destino = int.Parse(lsbDestino.SelectedItem.ToString().Trim().Substring(0,1));
-            if (origem != destino)
-                grafo.AcharCaminhos(origem, destino, dgvCaminhos, dgvMelhorCaminho, cidades);
-            else
-                MessageBox.Show("Selecione origem e destino distintos");
+            if (lsbDestino.SelectedIndex == -1 || lsbOrigem.SelectedIndex == -1)
+                MessageBox.Show("Selecione ambos os campos de origem e destino");
+            else 
+            {
+                int origem = int.Parse(lsbOrigem.SelectedItem.ToString().Trim().Substring(0, 2));
+                int destino = int.Parse(lsbDestino.SelectedItem.ToString().Trim().Substring(0, 2));
+                if (origem != destino)
+                    grafo.AcharCaminhos(origem, destino, dgvCaminhos, dgvMelhorCaminho, cidades);
+                else
+                    MessageBox.Show("Selecione origem e destino distintos");
+            }
         }
 
         private void pbMapa_Paint(object sender, PaintEventArgs e)
