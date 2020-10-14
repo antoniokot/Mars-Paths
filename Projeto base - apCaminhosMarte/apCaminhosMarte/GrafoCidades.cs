@@ -13,7 +13,7 @@ namespace apCaminhosMarte
     {
         int[,] matrizCidades;
         int qtsCidades;
-        int qtosCaminhos;
+        int menorDist;
 
         const int tamanhoOrigem = 3;
         const int tamanhoDestino = 3;
@@ -92,6 +92,7 @@ namespace apCaminhosMarte
         {
             int prox = 0;
             int atual = origem;
+            menorDist = 0;
 
             PilhaLista<Movimento> movimentos = new PilhaLista<Movimento>();
             PilhaLista<Movimento> melhorCaminho = new PilhaLista<Movimento>();
@@ -113,7 +114,7 @@ namespace apCaminhosMarte
                     int dist = matrizCidades[atual, prox];
                     mov.Empilhar(new Movimento(atual, prox, dist));
 
-                    ExibirCaminhos(dgvCaminhos, mov);
+                    ExibirCaminhos(dgvCaminhos, dgvMelhor, mov);
 
                     prox++;
                     mov.Desempilhar();
@@ -131,7 +132,7 @@ namespace apCaminhosMarte
                     int dist = matrizCidades[atual, prox];
                     mov.Empilhar(new Movimento(atual, prox, dist));
 
-                    atual = prox;
+                    atual = prox;   
                     prox = 0;
 
                     ExisteCaminho(origem, destino, ref atual, ref prox, dgvCaminhos, dgvMelhor, cidades, ref mov, ref melhor, ref visit);
@@ -145,16 +146,28 @@ namespace apCaminhosMarte
                 ExisteCaminho(origem, destino, ref atual, ref prox, dgvCaminhos, dgvMelhor, cidades, ref mov, ref melhor, ref visit);
             }
         }    
-        private void ExibirCaminhos(DataGridView dgv, PilhaLista<Movimento> mov)
+        private void ExibirCaminhos(DataGridView dgv, DataGridView dgvMenor, PilhaLista<Movimento> mov)
         {
             if(dgv.ColumnCount < mov.Tamanho)
                 dgv.ColumnCount = mov.Tamanho;
             PilhaLista<Movimento> aux = new PilhaLista<Movimento>();
+            int soma = 0;
             while (!mov.EstaVazia)
             {
-                aux.Empilhar(mov.Desempilhar());
+                var atual = mov.Desempilhar();
+                soma += atual.Distancia;
+                aux.Empilhar(atual);
             }
             aux.Exibir(dgv);
+            if(soma < menorDist || menorDist == 0)
+            {
+                dgvMenor.Rows.Clear();
+                dgvMenor.Refresh();
+
+                menorDist = soma;
+                aux.Exibir(dgvMenor);
+            }
+            
             while (!aux.EstaVazia)
             {
                 mov.Empilhar(aux.Desempilhar());

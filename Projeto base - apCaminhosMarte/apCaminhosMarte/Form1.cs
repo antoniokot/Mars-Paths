@@ -30,13 +30,11 @@ namespace apCaminhosMarte
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            for(int i = 0;i < dgvCaminhos.RowCount; i++)
-            {
-                for(int j = 0; j < dgvCaminhos.ColumnCount; j++)
-                {
-                    dgvCaminhos[j, i].Value = "";
-                }
-            }
+            dgvCaminhos.Rows.Clear();
+            dgvCaminhos.Refresh();
+
+            dgvMelhorCaminho.Rows.Clear();
+            dgvMelhorCaminho.Refresh();
 
             int origem = int.Parse(lsbOrigem.SelectedItem.ToString().Trim().Substring(0,1));
             int destino = int.Parse(lsbDestino.SelectedItem.ToString().Trim().Substring(0,1));
