@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 // Antônio Hideto Borges Kotsubo - 19162 e Matheus Seiji Luna Noda - 19190
 class Movimento : IComparable<Movimento>    // Classe alterada para auxilio no projeto
 {
-    private int origem, destino, distancia;     // Coordenadas da matriz
+    private int origem, destino, distancia;     // Coordenadas da matriz de proximidade de cidades
     public Movimento(int ori, int des, int dist)
     {
         origem = ori;
