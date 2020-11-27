@@ -12,7 +12,7 @@ namespace apCaminhosMarte
 {
     //Antônio Hideto Borges Kotsubo - 19162
     //Matheus Seiji Luna Noda       - 19190
-    class ArvoreCidades : ArvoreDeBusca<Cidade>
+    class ArvoreCidades : ArvoreDeBuscaAVL<Cidade>
     {
         //Quantidade de cidades
         int qtasCidades;
@@ -47,7 +47,7 @@ namespace apCaminhosMarte
                 //Cria uma nova cidade
                 Cidade novaCidade = new Cidade(id, x, y, nome);
                 //Inclui a cidade
-                Incluir(novaCidade);
+                Raiz = Incluir(novaCidade, Raiz);
 
                 //Incrementa contagem de cidades
                 qtasCidades++;

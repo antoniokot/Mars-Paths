@@ -26,6 +26,9 @@ namespace apCaminhosMarte
         {
             InitializeComponent();
 
+            //deixa os ListBoxes com uma opção já pré-escolhida
+            lsbPeso.SetSelected(0, true);
+            lsbMetodos.SetSelected(0, true);
             //cidades le o arquivo de cidades 
             cidades = new ArvoreCidades("../../../CidadesMarte.txt");
             //grafo le o arquivo de caminhos
@@ -62,8 +65,26 @@ namespace apCaminhosMarte
                 {
                     //Graphics de pbMapa
                     Graphics g = pbMapa.CreateGraphics();
-                    //Tenta achar os caminhos entre origem e destino
-                    grafo.AcharCaminhos(origem, destino, dgvCaminhos, dgvMelhorCaminho, cidades, g);
+                    //Opcao de peso
+                    int peso = int.Parse(lsbPeso.SelectedItem.ToString().Trim().Substring(0, 2));
+                    //Opcao de metodos
+                    int met = int.Parse(lsbMetodos.SelectedItem.ToString().Trim().Substring(0, 2));
+
+                    switch (met)
+                    {
+                        case 1:
+                            //Tenta achar os caminhos entre origem e destino (recursao)
+                            grafo.AcharCaminhosRec(origem, destino, peso, dgvCaminhos, dgvMelhorCaminho, cidades, g);
+                            break;
+                        case 2:
+                            //Tenta achar os caminhos entre origem e destino (Algoritimo de Dijkstra)
+                            grafo.AcharCaminhoDijkstra(origem, destino, peso, dgvMelhorCaminho, dgvCaminhos, cidades, g);
+                            break;
+                        case 3:
+                            //Tenta achar os caminhos entre origem e destino (pilhas)
+                            grafo.AcharCaminhosPilhas(origem, destino, peso, dgvCaminhos, dgvMelhorCaminho, cidades, g);
+                            break;
+                    }
 
                     //Caso nenhum caminho seja encontrado
                     if (dgvMelhorCaminho.RowCount == 0)
@@ -84,6 +105,45 @@ namespace apCaminhosMarte
         {
             //Desenha a arvore na TabPage
             cidades.DesenharArvore(true, cidades.Raiz, 569, 5, Math.PI/2, 1.2, 250, e.Graphics);
+        }
+
+        private void dgvCaminhos_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            //Permite apenas que selecione-se uma linha inteira do dgv
+            e.PaintParts &= ~DataGridViewPaintParts.Focus;
+        }
+
+        private void dgvCaminhos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Desenha o caminho selecionado do dgv
+            //Caso tenha celulas selecionadas
+            if (dgvCaminhos.SelectedCells.Count > 0)
+            {
+                //Limpa a tela
+                pbMapa.Image = img;
+                pbMapa.Refresh();
+
+                //Elemento Graphics para desenhar na tela
+                Graphics g = pbMapa.CreateGraphics();
+              
+                //Percorre o caminho no dgv
+                for (int i = 0; i < dgvCaminhos.SelectedCells.Count; i++)
+                {
+                    //Verifica se o valor da célula não é vazio
+                    if (dgvCaminhos.SelectedCells[i].Value.ToString().Trim() != "")
+                    {
+                        //Divide a string pela posicao da virgula que separa os indices das cidades do movimento
+                        string[] cellString = dgvCaminhos.SelectedCells[i].Value.ToString().Split(',');
+                        //Utiliza dos indices separados para "pegar" as cidades respectivas
+                        Cidade cid0 = cidades.getCidadeById(int.Parse(cellString[0]));
+                        Cidade cid1 = cidades.getCidadeById(int.Parse(cellString[1]));
+                        //Usa das coordenadas das cidades para desenhar a linha
+                        g.DrawLine(new Pen(Color.Red), 5 + cid0.X / 4, 5 + cid0.Y / 4, 5 + cid1.X / 4, 5 + cid1.Y / 4);
+                        //Repinta as cidades
+                        cidades.PercorrerPintar(g);
+                    }
+                }
+            }
         }
     }
 }

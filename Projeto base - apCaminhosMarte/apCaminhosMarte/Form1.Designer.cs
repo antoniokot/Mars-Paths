@@ -31,9 +31,25 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpRotas = new System.Windows.Forms.TabPage();
+            this.lblMetodos = new System.Windows.Forms.Label();
+            this.lsbMetodos = new System.Windows.Forms.ListBox();
+            this.lblPeso = new System.Windows.Forms.Label();
+            this.lsbPeso = new System.Windows.Forms.ListBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dgvMelhorCaminho = new System.Windows.Forms.DataGridView();
+            this.Movimento1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvCaminhos = new System.Windows.Forms.DataGridView();
+            this.Movimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Movimento2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Movimento3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Movimento4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Movimento5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Movimento6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,18 +58,6 @@
             this.lsbOrigem = new System.Windows.Forms.ListBox();
             this.pbMapa = new System.Windows.Forms.PictureBox();
             this.tpArvore = new System.Windows.Forms.TabPage();
-            this.Movimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Movimento2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Movimento3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Movimento4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Movimento5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Movimento6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Movimento1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tpRotas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMelhorCaminho)).BeginInit();
@@ -76,6 +80,10 @@
             // 
             // tpRotas
             // 
+            this.tpRotas.Controls.Add(this.lblMetodos);
+            this.tpRotas.Controls.Add(this.lsbMetodos);
+            this.tpRotas.Controls.Add(this.lblPeso);
+            this.tpRotas.Controls.Add(this.lsbPeso);
             this.tpRotas.Controls.Add(this.btnBuscar);
             this.tpRotas.Controls.Add(this.dgvMelhorCaminho);
             this.tpRotas.Controls.Add(this.dgvCaminhos);
@@ -94,10 +102,54 @@
             this.tpRotas.Text = "Rotas entre cidades";
             this.tpRotas.UseVisualStyleBackColor = true;
             // 
+            // lblMetodos
+            // 
+            this.lblMetodos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMetodos.AutoSize = true;
+            this.lblMetodos.Location = new System.Drawing.Point(1185, 101);
+            this.lblMetodos.Name = "lblMetodos";
+            this.lblMetodos.Size = new System.Drawing.Size(43, 13);
+            this.lblMetodos.TabIndex = 15;
+            this.lblMetodos.Text = "Método";
+            // 
+            // lsbMetodos
+            // 
+            this.lsbMetodos.FormattingEnabled = true;
+            this.lsbMetodos.Items.AddRange(new object[] {
+            "01 - Recursão",
+            "02 - DiJkstra (menor)",
+            "03 - Pilhas"});
+            this.lsbMetodos.Location = new System.Drawing.Point(1180, 117);
+            this.lsbMetodos.Name = "lsbMetodos";
+            this.lsbMetodos.Size = new System.Drawing.Size(111, 43);
+            this.lsbMetodos.TabIndex = 14;
+            // 
+            // lblPeso
+            // 
+            this.lblPeso.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPeso.AutoSize = true;
+            this.lblPeso.Location = new System.Drawing.Point(1062, 101);
+            this.lblPeso.Name = "lblPeso";
+            this.lblPeso.Size = new System.Drawing.Size(39, 13);
+            this.lblPeso.TabIndex = 13;
+            this.lblPeso.Text = "Critério";
+            // 
+            // lsbPeso
+            // 
+            this.lsbPeso.FormattingEnabled = true;
+            this.lsbPeso.Items.AddRange(new object[] {
+            "01 - Distância",
+            "02 - Tempo",
+            "03 - Preço"});
+            this.lsbPeso.Location = new System.Drawing.Point(1060, 117);
+            this.lsbPeso.Name = "lsbPeso";
+            this.lsbPeso.Size = new System.Drawing.Size(111, 43);
+            this.lsbPeso.TabIndex = 12;
+            // 
             // btnBuscar
             // 
             this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBuscar.Location = new System.Drawing.Point(1221, 190);
+            this.btnBuscar.Location = new System.Drawing.Point(1139, 180);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(89, 23);
             this.btnBuscar.TabIndex = 11;
@@ -124,6 +176,42 @@
             this.dgvMelhorCaminho.Size = new System.Drawing.Size(277, 71);
             this.dgvMelhorCaminho.TabIndex = 10;
             // 
+            // Movimento1
+            // 
+            this.Movimento1.HeaderText = "Movimento";
+            this.Movimento1.Name = "Movimento1";
+            this.Movimento1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Movimento";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Movimento";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Movimento";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Movimento";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Movimento";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
             // dgvCaminhos
             // 
             this.dgvCaminhos.AllowUserToAddRows = false;
@@ -138,145 +226,14 @@
             this.Movimento5,
             this.Movimento6});
             this.dgvCaminhos.Location = new System.Drawing.Point(1037, 238);
+            this.dgvCaminhos.MultiSelect = false;
             this.dgvCaminhos.Name = "dgvCaminhos";
             this.dgvCaminhos.ReadOnly = true;
+            this.dgvCaminhos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCaminhos.Size = new System.Drawing.Size(277, 181);
             this.dgvCaminhos.TabIndex = 9;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1034, 429);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Melhor caminho";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1034, 222);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(118, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Caminhos encontrados:";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1035, 113);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Destino";
-            // 
-            // lsbDestino
-            // 
-            this.lsbDestino.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lsbDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lsbDestino.FormattingEnabled = true;
-            this.lsbDestino.ItemHeight = 16;
-            this.lsbDestino.Items.AddRange(new object[] {
-            "  00 - Acheron          ",
-            "  01 - Arena           ",
-            "  02 - Arrakeen       ",
-            "  03 - Bakhuysen       ",
-            "  04 - Bradbury ",
-            "  05 - Burroughs       ",
-            "  06 - Cairo            ",
-            "  07 - Dumont",
-            "  08 - Echus Overlook",
-            "  09 - Esperança",
-            "  10 - Gondor",
-            "  11 - Lakefront",
-            "  12 - Lowell",
-            "  13 - Moria",
-            "  14 - Nicosia",
-            "  15 - Odesa",
-            "  16 - Perseverança",
-            "  17 - Rowan",
-            "  18 - Senzeni Na",
-            "  19 - Sheffield",
-            "  20 - Temperança",
-            "  21 - Tharsis",
-            "  22 - Underhill"});
-            this.lsbDestino.Location = new System.Drawing.Point(1038, 129);
-            this.lsbDestino.Name = "lsbDestino";
-            this.lsbDestino.Size = new System.Drawing.Size(177, 84);
-            this.lsbDestino.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1038, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Origem";
-            // 
-            // lsbOrigem
-            // 
-            this.lsbOrigem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lsbOrigem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lsbOrigem.FormattingEnabled = true;
-            this.lsbOrigem.ItemHeight = 16;
-            this.lsbOrigem.Items.AddRange(new object[] {
-            "  00 - Acheron          ",
-            "  01 - Arena           ",
-            "  02 - Arrakeen       ",
-            "  03 - Bakhuysen       ",
-            "  04 - Bradbury ",
-            "  05 - Burroughs       ",
-            "  06 - Cairo            ",
-            "  07 - Dumont",
-            "  08 - Echus Overlook",
-            "  09 - Esperança",
-            "  10 - Gondor",
-            "  11 - Lakefront",
-            "  12 - Lowell",
-            "  13 - Moria",
-            "  14 - Nicosia",
-            "  15 - Odesa",
-            "  16 - Perseverança",
-            "  17 - Rowan",
-            "  18 - Senzeni Na",
-            "  19 - Sheffield",
-            "  20 - Temperança",
-            "  21 - Tharsis",
-            "  22 - Underhill"});
-            this.lsbOrigem.Location = new System.Drawing.Point(1038, 25);
-            this.lsbOrigem.Name = "lsbOrigem";
-            this.lsbOrigem.Size = new System.Drawing.Size(177, 84);
-            this.lsbOrigem.TabIndex = 1;
-            // 
-            // pbMapa
-            // 
-            this.pbMapa.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbMapa.Image = ((System.Drawing.Image)(resources.GetObject("pbMapa.Image")));
-            this.pbMapa.Location = new System.Drawing.Point(7, 7);
-            this.pbMapa.Name = "pbMapa";
-            this.pbMapa.Size = new System.Drawing.Size(1024, 512);
-            this.pbMapa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbMapa.TabIndex = 0;
-            this.pbMapa.TabStop = false;
-            this.pbMapa.Paint += new System.Windows.Forms.PaintEventHandler(this.pbMapa_Paint);
-            // 
-            // tpArvore
-            // 
-            this.tpArvore.Location = new System.Drawing.Point(4, 22);
-            this.tpArvore.Name = "tpArvore";
-            this.tpArvore.Padding = new System.Windows.Forms.Padding(3);
-            this.tpArvore.Size = new System.Drawing.Size(1318, 525);
-            this.tpArvore.TabIndex = 1;
-            this.tpArvore.Text = "Árvore de Cidades";
-            this.tpArvore.UseVisualStyleBackColor = true;
-            this.tpArvore.Paint += new System.Windows.Forms.PaintEventHandler(this.tpArvore_Paint);
+            this.dgvCaminhos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCaminhos_CellClick);
+            this.dgvCaminhos.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgvCaminhos_RowPrePaint);
             // 
             // Movimento
             // 
@@ -314,41 +271,140 @@
             this.Movimento6.Name = "Movimento6";
             this.Movimento6.ReadOnly = true;
             // 
-            // Movimento1
+            // label4
             // 
-            this.Movimento1.HeaderText = "Movimento";
-            this.Movimento1.Name = "Movimento1";
-            this.Movimento1.ReadOnly = true;
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(1034, 429);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(82, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Melhor caminho";
             // 
-            // dataGridViewTextBoxColumn1
+            // label3
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Movimento";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(1034, 222);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(118, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Caminhos encontrados:";
             // 
-            // dataGridViewTextBoxColumn2
+            // label2
             // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Movimento";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(1174, 21);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Destino";
             // 
-            // dataGridViewTextBoxColumn3
+            // lsbDestino
             // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Movimento";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.lsbDestino.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lsbDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lsbDestino.FormattingEnabled = true;
+            this.lsbDestino.ItemHeight = 16;
+            this.lsbDestino.Items.AddRange(new object[] {
+            "  00 - Acheron          ",
+            "  01 - Arena           ",
+            "  02 - Arrakeen       ",
+            "  03 - Bakhuysen       ",
+            "  04 - Bradbury ",
+            "  05 - Burroughs       ",
+            "  06 - Cairo            ",
+            "  07 - Dumont",
+            "  08 - Echus Overlook",
+            "  09 - Esperança",
+            "  10 - Gondor",
+            "  11 - Lakefront",
+            "  12 - Lowell",
+            "  13 - Moria",
+            "  14 - Nicosia",
+            "  15 - Odesa",
+            "  16 - Perseverança",
+            "  17 - Rowan",
+            "  18 - Senzeni Na",
+            "  19 - Sheffield",
+            "  20 - Temperança",
+            "  21 - Tharsis",
+            "  22 - Underhill"});
+            this.lsbDestino.Location = new System.Drawing.Point(1177, 37);
+            this.lsbDestino.Name = "lsbDestino";
+            this.lsbDestino.Size = new System.Drawing.Size(114, 52);
+            this.lsbDestino.TabIndex = 3;
             // 
-            // dataGridViewTextBoxColumn4
+            // label1
             // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Movimento";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1057, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Origem";
             // 
-            // dataGridViewTextBoxColumn5
+            // lsbOrigem
             // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Movimento";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.lsbOrigem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lsbOrigem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lsbOrigem.FormattingEnabled = true;
+            this.lsbOrigem.ItemHeight = 16;
+            this.lsbOrigem.Items.AddRange(new object[] {
+            "  00 - Acheron          ",
+            "  01 - Arena           ",
+            "  02 - Arrakeen       ",
+            "  03 - Bakhuysen       ",
+            "  04 - Bradbury ",
+            "  05 - Burroughs       ",
+            "  06 - Cairo            ",
+            "  07 - Dumont",
+            "  08 - Echus Overlook",
+            "  09 - Esperança",
+            "  10 - Gondor",
+            "  11 - Lakefront",
+            "  12 - Lowell",
+            "  13 - Moria",
+            "  14 - Nicosia",
+            "  15 - Odesa",
+            "  16 - Perseverança",
+            "  17 - Rowan",
+            "  18 - Senzeni Na",
+            "  19 - Sheffield",
+            "  20 - Temperança",
+            "  21 - Tharsis",
+            "  22 - Underhill"});
+            this.lsbOrigem.Location = new System.Drawing.Point(1057, 37);
+            this.lsbOrigem.Name = "lsbOrigem";
+            this.lsbOrigem.Size = new System.Drawing.Size(114, 52);
+            this.lsbOrigem.TabIndex = 1;
+            // 
+            // pbMapa
+            // 
+            this.pbMapa.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbMapa.Image = ((System.Drawing.Image)(resources.GetObject("pbMapa.Image")));
+            this.pbMapa.Location = new System.Drawing.Point(7, 7);
+            this.pbMapa.Name = "pbMapa";
+            this.pbMapa.Size = new System.Drawing.Size(1024, 512);
+            this.pbMapa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbMapa.TabIndex = 0;
+            this.pbMapa.TabStop = false;
+            this.pbMapa.Paint += new System.Windows.Forms.PaintEventHandler(this.pbMapa_Paint);
+            // 
+            // tpArvore
+            // 
+            this.tpArvore.Location = new System.Drawing.Point(4, 22);
+            this.tpArvore.Name = "tpArvore";
+            this.tpArvore.Padding = new System.Windows.Forms.Padding(3);
+            this.tpArvore.Size = new System.Drawing.Size(1318, 525);
+            this.tpArvore.TabIndex = 1;
+            this.tpArvore.Text = "Árvore de Cidades";
+            this.tpArvore.UseVisualStyleBackColor = true;
+            this.tpArvore.Paint += new System.Windows.Forms.PaintEventHandler(this.tpArvore_Paint);
             // 
             // Form1
             // 
@@ -395,6 +451,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Movimento4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Movimento5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Movimento6;
+        private System.Windows.Forms.Label lblPeso;
+        private System.Windows.Forms.Label lblMetodos;
+        private System.Windows.Forms.ListBox lsbMetodos;
+        private System.Windows.Forms.ListBox lsbPeso;
     }
 }
 
